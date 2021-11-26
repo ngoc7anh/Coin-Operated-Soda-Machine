@@ -2,7 +2,7 @@ package machine.service.impl;
 
 import machine.entity.CoinBundle;
 import machine.entity.Product;
-import machine.entity.VendingMachineRequest;
+import machine.entity.MachineRequest;
 import machine.service.Calculator;
 import machine.service.VendingMachine;
 
@@ -45,7 +45,7 @@ public class VendingMachineImpl implements VendingMachine {
 
     @Override
     public CoinBundle enterCoins(int... coins) {
-        VendingMachineRequest request = new VendingMachineRequest(selectedProduct, coins);
+        MachineRequest request = new MachineRequest(selectedProduct, coins);
         change = calculator.calculateChange(request);
         return change;
 
@@ -54,7 +54,7 @@ public class VendingMachineImpl implements VendingMachine {
     @Override
     public void displayChangeMessage() {
         System.out.println("");
-        System.out.println("Your refund is :"+ change.getTotal()+" VND split as follows: ");
+        System.out.println("Your refund is: "+ change.getTotal()+" VND split as follows: ");
         System.out.println("    200.000 VND: "+ change.number200k);
         System.out.println("    100.000 VND: "+ change.number100k);
         System.out.println("    50.000 VND: "+ change.number50k);

@@ -2,7 +2,7 @@ package machine.service.impl;
 
 import machine.entity.Coin;
 import machine.entity.CoinBundle;
-import machine.entity.VendingMachineRequest;
+import machine.entity.MachineRequest;
 import machine.service.Calculator;
 
 public class CalculatorImpl implements Calculator{
@@ -35,7 +35,7 @@ public class CalculatorImpl implements Calculator{
     }
     
     @Override
-    public CoinBundle calculateChange(VendingMachineRequest request) {
+    public CoinBundle calculateChange(MachineRequest request) {
         int total = this.calculateTotal(request.enteredCoins);
         int totalChange = total - request.product.getPrice();
         return this.calculateChange(totalChange);

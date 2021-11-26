@@ -13,26 +13,26 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 		String choice = null;
         String userEnteredCoins = null;
-        CoinBundle cc = null;
+        CoinBundle cb = null;
 
-        VendingMachine machineInterface = new VendingMachineImpl();
+        VendingMachine machine = new VendingMachineImpl();
 
-        machineInterface.displayProducts();
+        machine.displayProducts();
 
         String selectedProduct = scanner.nextLine();
-        machineInterface.selectProduct(Integer.parseInt(selectedProduct));
+        machine.selectProduct(Integer.parseInt(selectedProduct));
         
 		do {
-	        machineInterface.displayEnterCoinsMessage();
+			machine.displayEnterCoinsMessage();
 	        userEnteredCoins = scanner.nextLine();
 	        int[] enteredCoins = Coin.parseCoins(userEnteredCoins);
-	        cc = machineInterface.enterCoins(enteredCoins);
-	        if (cc.getTotal() < 0) {
-				System.out.println(" Your amount is not enough!!! please re-enter.");
+	        cb = machine.enterCoins(enteredCoins);
+	        if (cb.getTotal() < 0) {
+				System.out.println(" Your amount is not enough! Please re-enter.");
 	        }
-		} while (cc.getTotal() < 0);
+		} while (cb.getTotal() < 0);
 
-        machineInterface.displayChangeMessage();
+		machine.displayChangeMessage();
 
     }
 }

@@ -1,10 +1,10 @@
 package machine.entity;
 
-public class VendingMachineRequest {
+public class MachineRequest {
     public Product product;
     public CoinBundle enteredCoins;
 
-    public VendingMachineRequest(int selectedProduct,int... enteredCoins){
+    public MachineRequest(int selectedProduct,int... enteredCoins){
         this.product = Product.valueOf(selectedProduct);
         this.enteredCoins = new CoinBundle(enteredCoins);
     }
